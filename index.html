@@ -1,16 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio Aing</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<title>Studio Aing - Flutter IDE</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#fcfcf9;color:#1a1a1a;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+header{height:56px;background:white;border-bottom:1px solid #e8e8e3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+.logo{font-weight:700;font-size:18px;display:flex;gap:8px}
+.logo span{color:#3b82f6}
+.btn{padding:8px 16px;border-radius:8px;border:1px solid #e8e8e3;background:white;font-weight:600;cursor:pointer;font-size:13px}
+.btn-run{background:#3b82f6;color:white;border-color:#3b82f6}
+.main{flex:1;display:flex;overflow:hidden}
+.sidebar{width:220px;background:#f9f9f6;border-right:1px solid #e8e8e3}
+.sidebar-h{padding:12px 16px;font-size:11px;font-weight:700;letter-spacing:.08em;color:#888;text-transform:uppercase}
+.file{padding:8px 16px 8px 24px;font-size:13px;display:flex;gap:8px;cursor:pointer;color:#555}
+.file.active{background:#eef2ff;color:#3b82f6;font-weight:600;border-right:2px solid #3b82f6}
+.editor-wrap{flex:1;display:flex;flex-direction:column;background:#fff;min-width:0}
+.tabs{height:40px;background:#f9f9f6;border-bottom:1px solid #e8e8e3;display:flex;padding:0 8px}
+.tab{padding:6px 12px;background:white;border:1px solid #e8e8e3;border-radius:6px 6px 0 0;font-size:12px;font-family:'JetBrains Mono',monospace}
+.code-area{flex:1}
+textarea#code{width:100%;height:100%;border:0;outline:0;padding:16px;font-family:'JetBrains Mono',monospace;font-size:13.5px;line-height:1.7;resize:none}
+.preview{width:380px;background:#f9f9f6;border-left:1px solid #e8e8e3;display:flex;flex-direction:column}
+.preview-h{height:40px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:#f9f9f6;border-bottom:1px solid #e8e8e3;font-size:12px;font-weight:600;color:#666}
+.dot{width:8px;height:8px;background:#22c55e;border-radius:50%;display:inline-block;margin-right:6px}
+.phone-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:20px;background:radial-gradient(#e8e8e3 1px, transparent 1px);background-size:20px 20px}
+.phone{width:280px;height:520px;background:white;border-radius:32px;border:8px solid #1a1a1a;box-shadow:0 20px 40px rgba(0,0,0,.15);overflow:hidden;display:flex;flex-direction:column;position:relative}
+.notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:90px;height:20px;background:#1a1a1a;border-radius:0 0 12px 12px}
+.app-bar{background:#3b82f6;color:white;padding:40px 16px 12px;font-weight:600;text-align:center;font-size:14px}
+.app-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;gap:16px;text-align:center}
+.counter{font-size:48px;font-weight:700}
+.fab{width:56px;height:56px;background:#3b82f6;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;box-shadow:0 4px 12px rgba(59,130,246,.4);margin-top:20px}
+</style>
 </head>
-<body class="bg-white text-center p-10">
-<h1 class="text-4xl font-bold">Studio Aing</h1>
-<p class="mt-4 text-gray-500">Flutter IDE di Browser - Light Mode - Coming Soon</p>
-<div class="mt-8 p-4 bg-gray-50 rounded-xl border">
-<p class="font-mono text-sm">lib/main.dart > Ready to code</p>
+<body>
+<header>
+<div class="logo">⚡ Studio <span>Aing</span></div>
+<div style="display:flex;gap:8px"><button class="btn" onclick="location.reload()">Reset</button><button class="btn btn-run" onclick="inc()">▶ Run</button></div>
+</header>
+<div class="main">
+<div class="sidebar"><div class="sidebar-h">Explorer</div><div class="file active">📄 main.dart</div><div class="file">📄 pubspec.yaml</div><div class="file">📁 lib</div></div>
+<div class="editor-wrap"><div class="tabs"><div class="tab active">📘 lib/main.dart</div></div><div class="code-area"><textarea id="code" spellcheck="false">import 'package:flutter/material.dart';
+
+void main() { runApp(const MyApp()); }
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Studio Aing',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
+      ),
+      home: const CounterPage(),
+    );
+  }
+}
+
+class CounterPage extends StatefulWidget {
+  const CounterPage({super.key});
+  @override
+  State<CounterPage> createState() => _CounterPageState();
+}
+
+class _CounterPageState extends State<CounterPage> {
+  int _counter = 0;
+  void _increment() { setState(() { _counter++; }); }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Studio Aing')),
+      body: Center(child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text('You have pushed the button:'),
+          Text('$_counter', style: Theme.of(context).textTheme.headlineMedium),
+        ],
+      )),
+      floatingActionButton: FloatingActionButton(onPressed: _increment, child: const Icon(Icons.add)),
+    );
+  }
+}
+</textarea></div></div>
+<div class="preview"><div class="preview-h"><span><span class="dot"></span>Emulator • Pixel 7</span><span>Hot Reload ✓</span></div><div class="phone-wrap"><div class="phone"><div class="notch"></div><div class="app-bar">Studio Aing</div><div class="app-body"><div style="color:#666;font-size:13px">You have pushed the button:</div><div class="counter" id="counter">0</div><div style="color:#999;font-size:11px">Edit lib/main.dart > Ready</div><div class="fab" onclick="inc()">+</div></div></div></div></div>
 </div>
+<script>
+let count=0;
+function inc(){count++;document.getElementById('counter').innerText=count}
+</script>
 </body>
 </html>
