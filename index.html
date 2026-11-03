@@ -1,48 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio Aing - Flutter IDE</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#fcfcf9;color:#1a1a1a;height:100vh;display:flex;flex-direction:column;overflow:hidden}
-header{height:56px;background:white;border-bottom:1px solid #e8e8e3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
-.logo{font-weight:700;font-size:18px;display:flex;gap:8px}
-.logo span{color:#3b82f6}
-.btn{padding:8px 16px;border-radius:8px;border:1px solid #e8e8e3;background:white;font-weight:600;cursor:pointer;font-size:13px}
-.btn-run{background:#3b82f6;color:white;border-color:#3b82f6}
-.main{flex:1;display:flex;overflow:hidden}
-.sidebar{width:220px;background:#f9f9f6;border-right:1px solid #e8e8e3}
-.sidebar-h{padding:12px 16px;font-size:11px;font-weight:700;letter-spacing:.08em;color:#888;text-transform:uppercase}
-.file{padding:8px 16px 8px 24px;font-size:13px;display:flex;gap:8px;cursor:pointer;color:#555}
-.file.active{background:#eef2ff;color:#3b82f6;font-weight:600;border-right:2px solid #3b82f6}
-.editor-wrap{flex:1;display:flex;flex-direction:column;background:#fff;min-width:0}
-.tabs{height:40px;background:#f9f9f6;border-bottom:1px solid #e8e8e3;display:flex;padding:0 8px}
-.tab{padding:6px 12px;background:white;border:1px solid #e8e8e3;border-radius:6px 6px 0 0;font-size:12px;font-family:'JetBrains Mono',monospace}
-.code-area{flex:1}
-textarea#code{width:100%;height:100%;border:0;outline:0;padding:16px;font-family:'JetBrains Mono',monospace;font-size:13.5px;line-height:1.7;resize:none}
-.preview{width:380px;background:#f9f9f6;border-left:1px solid #e8e8e3;display:flex;flex-direction:column}
-.preview-h{height:40px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:#f9f9f6;border-bottom:1px solid #e8e8e3;font-size:12px;font-weight:600;color:#666}
-.dot{width:8px;height:8px;background:#22c55e;border-radius:50%;display:inline-block;margin-right:6px}
-.phone-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:20px;background:radial-gradient(#e8e8e3 1px, transparent 1px);background-size:20px 20px}
-.phone{width:280px;height:520px;background:white;border-radius:32px;border:8px solid #1a1a1a;box-shadow:0 20px 40px rgba(0,0,0,.15);overflow:hidden;display:flex;flex-direction:column;position:relative}
-.notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:90px;height:20px;background:#1a1a1a;border-radius:0 0 12px 12px}
-.app-bar{background:#3b82f6;color:white;padding:40px 16px 12px;font-weight:600;text-align:center;font-size:14px}
-.app-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;gap:16px;text-align:center}
-.counter{font-size:48px;font-weight:700}
-.fab{width:56px;height:56px;background:#3b82f6;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;box-shadow:0 4px 12px rgba(59,130,246,.4);margin-top:20px}
-</style>
-</head>
-<body>
-<header>
-<div class="logo">⚡ Studio <span>Aing</span></div>
-<div style="display:flex;gap:8px"><button class="btn" onclick="location.reload()">Reset</button><button class="btn btn-run" onclick="inc()">▶ Run</button></div>
-</header>
-<div class="main">
-<div class="sidebar"><div class="sidebar-h">Explorer</div><div class="file active">📄 main.dart</div><div class="file">📄 pubspec.yaml</div><div class="file">📁 lib</div></div>
-<div class="editor-wrap"><div class="tabs"><div class="tab active">📘 lib/main.dart</div></div><div class="code-area"><textarea id="code" spellcheck="false">import 'package:flutter/material.dart';
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Studio Aing</title><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@500;700&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,sans-serif;background:#fcfcf9;color:#1a1a1a;height:100vh;display:flex;flex-direction:column}header{height:52px;background:#fff;border-bottom:1px solid #e5e5e0;display:flex;align-items:center;justify-content:space-between;padding:0 12px} .logo{font-weight:800;font-size:16px} .logo span{color:#2563eb}.m-switch{display:flex;background:#f1f1ec;border-radius:20px;padding:3px;gap:2px}.m-btn{padding:6px 14px;border-radius:16px;border:0;font-size:12px;font-weight:700;cursor:pointer;background:transparent;color:#666}.m-btn.active{background:#1a1a1a;color:#fff}.btn-run{background:#2563eb;color:#fff;border:0;padding:8px 14px;border-radius:8px;font-weight:700;font-size:12px;cursor:pointer}.main{flex:1;display:flex;overflow:hidden;position:relative}.editor-wrap{flex:1;display:flex;flex-direction:column;background:#fff;min-width:0}.tabs{height:36px;background:#f8f8f5;border-bottom:1px solid #e5e5e0;display:flex;align-items:center;padding:0 10px;font-size:12px;font-family:JetBrains Mono,monospace}.code-area{flex:1;overflow:auto;background:#fff}#code{width:100%;min-height:100%;border:0;outline:0;padding:14px;font-family:JetBrains Mono,monospace;font-size:12px;line-height:1.6;white-space:pre;overflow-wrap:normal;overflow-x:auto;display:block}.preview{width:360px;background:#fafaf7;border-left:1px solid #e5e5e0;display:flex;flex-direction:column}.preview-h{height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:11px;font-weight:600;color:#666;border-bottom:1px solid #e5e5e0}.dot{width:8px;height:8px;background:#22c55e;border-radius:50%;display:inline-block}.phone-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:16px;background-image:radial-gradient(#ddd 1px, transparent 1px);background-size:18px 18px}.phone{width:260px;height:500px;background:#fff;border-radius:28px;border:7px solid #111;box-shadow:0 18px 36px rgba(0,0,0,.18);overflow:hidden;display:flex;flex-direction:column;position:relative}.notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:84px;height:18px;background:#111;border-radius:0 0 10px 10px}.app-bar{background:#2563eb;color:#fff;padding:36px 12px 10px;text-align:center;font-weight:700;font-size:13px}.app-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px;text-align:center}.counter{font-size:44px;font-weight:800}.fab{width:52px;height:52px;background:#2563eb;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;cursor:pointer;box-shadow:0 4px 10px rgba(37,99,235,.4)}@media(max-width:768px){.preview{position:absolute;top:0;left:0;right:0;bottom:0;width:100%;z-index:5;display:none;border:0}.preview.show{display:flex}.editor-wrap.hide{display:none}}</style></head><body><header><div class="logo">⚡ Studio <span>Aing</span></div><div class="m-switch"><button class="m-btn active" id="btn-code" onclick="showTab('code')">CODE</button><button class="m-btn" id="btn-preview" onclick="showTab('preview')">PREVIEW</button></div><button class="btn-run" onclick="run()">▶ Run</button></header><div class="main"><div class="editor-wrap" id="editorWrap"><div class="tabs">📘 lib/main.dart</div><div class="code-area"><textarea id="code" spellcheck="false">import 'package:flutter/material.dart';
 
 void main() { runApp(const MyApp()); }
 
@@ -77,7 +34,7 @@ class _CounterPageState extends State<CounterPage> {
       body: Center(child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('You have pushed the button:'),
+          const Text('You pushed the button:'),
           Text('$_counter', style: Theme.of(context).textTheme.headlineMedium),
         ],
       )),
@@ -85,12 +42,4 @@ class _CounterPageState extends State<CounterPage> {
     );
   }
 }
-</textarea></div></div>
-<div class="preview"><div class="preview-h"><span><span class="dot"></span>Emulator • Pixel 7</span><span>Hot Reload ✓</span></div><div class="phone-wrap"><div class="phone"><div class="notch"></div><div class="app-bar">Studio Aing</div><div class="app-body"><div style="color:#666;font-size:13px">You have pushed the button:</div><div class="counter" id="counter">0</div><div style="color:#999;font-size:11px">Edit lib/main.dart > Ready</div><div class="fab" onclick="inc()">+</div></div></div></div></div>
-</div>
-<script>
-let count=0;
-function inc(){count++;document.getElementById('counter').innerText=count}
-</script>
-</body>
-</html>
+</textarea></div></div><div class="preview" id="preview"><div class="preview-h"><span><span class="dot"></span> Emulator • Pixel 7</span><span>Hot Reload ✓</span></div><div class="phone-wrap"><div class="phone"><div class="notch"></div><div class="app-bar">Studio Aing</div><div class="app-body"><div style="color:#666;font-size:12px">You have pushed the button:</div><div class="counter" id="counter">0</div><div style="color:#999;font-size:10px">lib/main.dart • Ready</div><div class="fab" onclick="inc()">+</div></div></div></div></div></div><script>let c=0;function inc(){c++;document.getElementById('counter').innerText=c;if(navigator.vibrate)navigator.vibrate(15)}function run(){inc();let b=document.querySelector('.btn-run');let t=b.innerText;b.innerText='✓';setTimeout(()=>b.innerText=t,700)}function showTab(t){const ed=document.getElementById('editorWrap');const pr=document.getElementById('preview');const bc=document.getElementById('btn-code');const bp=document.getElementById('btn-preview');if(t==='preview'){ed.classList.add('hide');pr.classList.add('show');bp.classList.add('active');bc.classList.remove('active')}else{ed.classList.remove('hide');pr.classList.remove('show');bc.classList.add('active');bp.classList.remove('active')}}</script></body></html>
